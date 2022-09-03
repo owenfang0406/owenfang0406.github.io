@@ -79,7 +79,19 @@ section{
 textarea{
   resize: vertical;
 }
+
+input,
+input::-webkit-input-placeholder {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+input[type=text] {
+    font-size: 20px;
+    text-align: left;
+}
 *{
+  max-width: 1400px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -127,7 +139,13 @@ header {
   color: #0088a9
 }
 
-
+.buttonContact{
+  margin-right: 50px;
+}
+.buttonSubmit{
+  margin-bottom: 5px;
+  margin-left: 50px;
+}
 button {
   padding: 9px 25px;
   background-color: rgba(0, 136, 169, 1);
