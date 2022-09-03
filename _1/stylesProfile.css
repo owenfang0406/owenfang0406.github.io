@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+.content{
+  width:980px;
+  height: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
+  /* background-color: white; */
+}
+.box{
+  width: 900px;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  line-height: 30px;
+}
+.formTitle{
+  width: 900px;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  line-height: 10px;
+}
+.title{
+  font-weight: bold;
+  background-color: #24252A;
+  color: white;
+}
+.boxContent{
+  background-color: white;
+  color: #24252A;
+  word-break: break-all;
+  text-align: left;
+}
+
+section{
+  height: 100vh;
+  width: 100%;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width:90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px ;
+  background-color: inherit;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group{
+  width: 100%;
+ margin-top:5px;
+ font-size: 20px;
+}
+.form-group input{
+  width: 100%;
+  height: 50px;
+}
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    padding: 5px;
+    font-size: 10px;
+    border: 1px solid rgba(128, 128, 0, 0.199);
+    margin-top: 5px;
+    background-color: white;
+}
+textarea{
+  resize: vertical;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #24252A;
+  background-position: 1000px 100px;
+}
+
+li, a, button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header {
+  width: 1000px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+}
+
+.logo{
+  cursor: pointer;
+}
+
+.nav___links {
+  list-style: none;
+}
+
+.nav___links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav___links li a {
+  transition: all 0.3 ease 0s;
+}
+
+.nav___links li a:hover {
+  color: #0088a9
+}
+
+
+button {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  margin-right: 50px;
+}
+
+button:hover{
+  background-color: rgba(0, 136, 169, 0.75);
+}
