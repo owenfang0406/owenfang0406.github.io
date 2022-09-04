@@ -19,7 +19,7 @@
   }
 }
 .content{
-  max-width: 1400px;
+  max-width: 2000px;
   min-width: 500px;
   margin-left: auto;
   margin-right:auto;
@@ -35,8 +35,15 @@
   background-color: white;
   vertical-align: top;
   text-align: center;
-  flex: none;
+  flex: auto;
 }
+.Pic{
+  width: 90%;
+  height: 90%;
+  object-fit:cover;
+  object-position: top;
+}
+
 
 .title{
   font-weight: bold;
@@ -52,7 +59,7 @@
   font-size: 15px;
 }
 *{
-  max-width: 1400px;
+  max-width: 2000px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
