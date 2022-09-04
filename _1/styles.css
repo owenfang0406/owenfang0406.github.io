@@ -1,21 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
 
+@media (max-width:1000px) {
+  .box{
+    width: 40%;
+    display: inline-block;
+  }
+  .header{
+    flex-wrap: wrap;
+  }
+  .content{
+    flex-wrap: wrap;
+  }
+  .title{
+    font-size: 15px;
+  }
+  .boxContent{
+    font-size: 10px;
+  }
+}
 .content{
-  width:980px;
-  height: 300px;
-  margin-left: 15%;
-  margin-right: 15%;
-  /* background-color: white; */
+  max-width: 1400px;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right:auto;
+  display: flex;
+  justify-content: center;
+
 }
 .box{
   width: 280px;
-  height: 150px;
+  height: 280px;
   padding: 10px;
   margin: 10px;
   background-color: white;
-  display: inline-block;
   vertical-align: top;
   text-align: center;
+  flex: none;
 }
 
 .title{
@@ -49,7 +69,6 @@ li, a, button {
 }
 
 header {
-  width: 1000px;
   height: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -57,6 +76,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 30px 10px;
+  margin: 30px;
 }
 
 .logo{
