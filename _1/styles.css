@@ -29,7 +29,7 @@
 }
 .box{
   width: 280px;
-  height: 280px;
+  height: 400px;
   padding: 10px;
   margin: 10px;
   background-color: white;
@@ -40,8 +40,7 @@
 .Pic{
   width: 90%;
   height: 90%;
-  object-fit:cover;
-  object-position: top;
+  object-fit:contain;
 }
 
 
