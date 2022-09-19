@@ -1,7 +1,12 @@
 .list{
     list-style: none;
 }
-
+/* .navBar{
+    height: fit-content;
+} */
+.hamburger{
+    display: none;
+}
 .navBar ul {
     display: flex;
 }
@@ -14,6 +19,7 @@
 .logo{
     font-size: 20px;
     float: none;
+    display: flex;
 }
 header {
     max-width: 100%;
@@ -45,7 +51,7 @@ body{
     max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    background-color: brown;
+    /* background-color: brown; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -60,15 +66,16 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    flex-wrap: wrap;
 }
 
 .longBox{
-    width: 600px;
+    max-width: 595px;
     height: 50px;
-    background-color: blueviolet;
+    background-color: rgb(209, 235, 248);
     display: flex;
-    flex: none;
+    flex: auto;
     align-items: center;
 }
 .ineerLongBox{
@@ -84,6 +91,7 @@ body{
     width: 100%;
     height: fit-content;
     text-align: center;
+    background-color: rgb(209, 235, 248);
 }
 
 .imgFrame{
@@ -98,25 +106,92 @@ body{
     flex-wrap: wrap;
 }
 .boxContainer{
-    width: 300px;
+    width: 290px;
     display: flex;
     flex-wrap: wrap;
     flex: none;
     height:fit-content;
-    background-color: aqua;
+    margin-top: 10px;
+    /* background-color: aqua; */
 
 }
 .box{
     flex: none;
-    width: 300px;
+    max-width: 300px;
     height:fit-content;
 }
 
 .boxImg{
-    width: 300px;
+    width: 290px;
     height: 200px;
     object-fit: cover;
 }
 
 
+@media screen and (max-width:1200px) {
 
+.container{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container2{
+    /* width: 90%; */
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.longBox{
+    max-width: 50%;
+    flex: auto;
+    margin: 0px 10px 0px 10px;
+}
+.boxContainer{
+    width: 45%;
+    flex: auto;
+    margin: 10px;
+
+}
+.box{
+    flex: auto;
+    max-width: 100%;
+    height:fit-content;
+}
+
+.boxImg{
+    width: 100%;
+    height: 100%;
+}
+}
+
+@media screen and (max-width:600px) {
+
+.longBox{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+.boxContainer{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.navBar{
+    display: none;
+    
+}
+
+.hamburger{
+    display: flex;
+
+}
+.hamburger img{
+    max-width: 30px;
+    /* max-height: 25px; */
+    
+}
+}
