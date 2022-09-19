@@ -80,6 +80,7 @@ body{
 }
 .ineerLongBox{
     flex: none;
+    padding-left: 10px;
 } 
 
 .longBoxImg{
