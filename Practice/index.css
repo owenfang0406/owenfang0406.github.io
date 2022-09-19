@@ -1,0 +1,50 @@
+body{
+    margin: 0px;
+}
+
+.container{
+    display: flex;
+}
+
+.box{
+    flex: none;
+}
+
+.left{
+    flex: none;
+    margin: 15px;
+    width: 300px;
+    background-color: blue;
+}
+
+.right{
+    flex: auto;
+    background-color: black;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item{
+    background-color: aliceblue;
+    margin: 15px;
+    width: 30px;
+    text-align: center;
+}
+
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 300px;
+}
+
+.text{
+    width: 300px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}

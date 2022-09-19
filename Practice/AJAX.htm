@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>AJAX / XHR 網路連線實務</h3>
+    <button onclick="getData();"
+    >取得資料</button>
+    <div id="result">
+
+    </div>
+
+    <script>
+        function getData() {
+            fetch("https://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/Streaming/City/Hsinchu?%24top=30&%24format=JSON").then(function(response) {
+                return response.json();
+            }).then(function(data){
+                console.log(data);
+                let result=document.querySelector("#result");
+                result.innerHTML="";
+                for(let i=0; i<=length; i++){
+                    let product=data[i];
+                    result.innerHTML += "<div>"+product.Azimuth+","+product.GPSTime+","+product.UpdateTime;
+                }
+            })
+        }
+    </script>
+</body>
+</html>
