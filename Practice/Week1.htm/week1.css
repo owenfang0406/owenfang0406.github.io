@@ -92,10 +92,9 @@ body{
     width: 100%;
     height: fit-content;
     text-align: center;
-    background-color: rgb(209, 235, 248);
+    background-color: rgba(209, 235, 248,0.5);
     position: absolute;
     bottom: 0px;
-    opacity: 0.5;
 }
 
 .imgFrame{
