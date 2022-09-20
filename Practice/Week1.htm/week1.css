@@ -92,7 +92,7 @@ body{
     width: 100%;
     height: fit-content;
     text-align: center;
-    background-color: rgb(209, 235, 248);
+    /* background-color: rgb(209, 235, 248); */
 }
 
 .imgFrame{
@@ -120,6 +120,7 @@ body{
     flex: none;
     max-width: 300px;
     height:fit-content;
+    background-color: rgb(209, 235, 248);
 }
 
 .boxImg{
