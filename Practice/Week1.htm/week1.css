@@ -12,6 +12,7 @@
 .navBar li {
     margin-left: 5px;
     text-align: center;
+    font-size: 20px;
 }
 
 .logo{
@@ -195,6 +196,7 @@ body{
 
 .navBar{
     display: none;
+
     
 }
 
