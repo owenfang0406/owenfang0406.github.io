@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Aerial', sans-serif;
+    font-size: 22px;
+    margin:0px;
+    padding: 0px;
+}
+
+header,
+footer,
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+.navBar{
+    width: 100%;
+    position: fixed;
+}
+
+.top{
+    height: 100px;
+    background-color: #303952;
+    color: white;
+    transition: all 0.5s;
+
+}
+
+nav ul {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+
+nav li{
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+
+/*
+Scrolling CSS
+*/
+
+.fixed {
+    height: 70px;
+}
+
+.bg-white {
+    background:  #fff;
+    color: #303952;
+}
+
