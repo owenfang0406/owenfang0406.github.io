@@ -41,7 +41,7 @@ input{
     position: fixed;
     height: 30px;
     width: 30px;
-    top: 20px;
+    top: 16px;
     right: 15px;
     z-index:1;
     cursor:pointer;
