@@ -38,7 +38,7 @@ input{
     -webkit-appearance: none;
 }
 .toggle{
-    position: absolute;
+    position: fixed;
     height: 30px;
     width: 30px;
     top: 20px;
@@ -46,19 +46,26 @@ input{
     z-index:1;
     cursor:pointer;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.3); */
   }
 
+.toggle:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.checkbox{
+    position: relative;
+}
 .toggle .common {
     position: absolute;
     height: 2px;
     width: 20px;
-    background-color: #8000ff;
+    background-color: black;
     border-radius: 50px;
     transition: 0.3s ease;
 }
 
 .toggle .top_line {
+    position: absolute;
     top:30%;
     left:50%;
     transform: translate(-50%, -50%);
@@ -95,6 +102,7 @@ input:checked ~ .toggle .middle_line {
   }
   
 input:checked ~ .slide{
+    position: fixed;
     transform: translateX(0px);
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
   }
@@ -154,7 +162,7 @@ body{
     /* background-color: brown; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    padding-top: 30px;
     justify-content: space-between;
     align-content: space-between;
 
@@ -246,7 +254,7 @@ body{
     width: 180px;
     right: 0px;
     position: absolute;
-    background-color: wheat;
+    background-color: white;
     transition: 0.5s ease;
     transform:translateX(200px);
 }
@@ -256,8 +264,8 @@ body{
 .container{
     /* position: relative; */
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     z-index: 2;
 }
 

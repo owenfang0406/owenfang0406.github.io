@@ -10,14 +10,14 @@
 <body>
     <div class="hamburger">
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox">
                         <div class="toggle">
                                 <span class="top_line common"></span>
                                 <span class="middle_line common"></span>
                                 <span class="bottom_line common"></span>
                         </div>
 
-                        <div class="slide">
+                        <div class="slide" id="slide">
                              <ul class="slideList">
                                 <li><a href="">Item1</a></li>
                                 <li><a href="">Item2</a></li>
@@ -27,7 +27,7 @@
                          </div>
             </label>
     </div>
-    <header>
+    <header onclick="hide()">
             <div class="logo">My Website</div>
     
         <!-- <div class="hamburger">
@@ -60,10 +60,10 @@
         </nav>
     </header>
 
-    <div class="content">
+    <div class="content" onclick="hide()">
         <span class="contentText">Welcome to MyHome</span>
     </div>
-    <div class="container">
+    <div class="container" onclick="hide()">
         <div class="container1">
             <div class="longBox">
                 <div class="imgFrame">
@@ -137,5 +137,13 @@
         </div>
         
     </div>
+    <script>
+        function hide() {
+           var checkbox = document.getElementById('checkbox');
+           if(checkbox.checked){
+            checkbox.checked = false;
+           }
+        }
+    </script>
 </body>
 </html>
