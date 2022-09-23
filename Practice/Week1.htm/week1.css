@@ -103,7 +103,7 @@ input:checked ~ .toggle .middle_line {
   
 input:checked ~ .slide{
     position: fixed;
-    transform: translateX(0px);
+    transform: translate(0,0);
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
   }
 
@@ -253,10 +253,10 @@ body{
     height: 100%;
     width: 180px;
     right: 0px;
-    position: absolute;
+    position: fixed;
     background-color: white;
-    transition: 0.5s ease;
-    transform:translateX(200px);
+    transition: 0.5s ease-out;
+    transform:translateX(100%);
 }
 
 @media screen and (max-width:1200px) {
@@ -325,9 +325,3 @@ body{
 
 }
 }
-/* 
-.hamburger img{
-    max-width: 50px;
-    max-height: 25px;
-    
-} */
