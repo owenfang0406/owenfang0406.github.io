@@ -91,14 +91,17 @@ maxProduct([-5, -2])
 def twoSum(nums, target):
     a=nums[0]
     b=nums[1]
+    a=0
+    b=1
     n=len(nums)
     for i in range(0,n):
         for j in range(i+1, n):
             if nums[i]+nums[j] == target:
-                a=nums[i]
-                b=nums[j]
+                a=i
+                b=j
     # result = "["+str(a)+","+str(b)+"]"
-    result = f"[{a},{b}] and the result is {a+b}"
+    result = f"[{a},{b}]"
+    # print(i+","+j)
     return result
 
 

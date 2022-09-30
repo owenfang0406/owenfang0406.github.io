@@ -101,6 +101,8 @@ function twoSum(nums,target) {
     var n = nums.length;
     var a = nums[0];
     var b = nums[1];
+    var x= 0;
+    var y= 1;
     var final = nums[0]+nums[1];
     if(n<2) {
         document.write("Not enough elements for this function");
@@ -110,10 +112,12 @@ function twoSum(nums,target) {
             if(nums[i] + nums[j] == target) {
                 a = nums[i];
                 b = nums[j];
+                x = i;
+                y = j;
                 final = nums[i]+nums[j];
             }    
         }
-    } return ("["+a+", "+b+"]")
+    } return ("["+x+", "+y+"]")
 }
 
 let result=twoSum([2, 11, 7, 15], 9);
