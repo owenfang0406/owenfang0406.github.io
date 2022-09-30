@@ -37,7 +37,7 @@ var data ={
     var n = data.employees.length;
     var salary = 0;
     var count = 0;
-        for(let i=0; i<n; i++) {
+        for(var i=0; i<n; i++) {
             if(data.employees[i].manager == false) {
                 salary += data.employees[i].salary;
                 count += 1;
@@ -76,8 +76,8 @@ function maxProduct (arr) {
     //     document.write("the result is "+ arr[0]*arr[1])
     // }
     var result = arr[0]*arr[1];
-    for(let i = 0; i<n ; i++) {
-        for(let j = i+1 ; j < n; j++) {
+    for(var i = 0; i<n ; i++) {
+        for(var j = i+1 ; j < n; j++) {
             if(arr[i]*arr[j] > result)  {
                 // var result2 = "";
                 result = arr[i]*arr[j];
@@ -107,8 +107,8 @@ function twoSum(nums,target) {
     if(n<2) {
         document.write("Not enough elements for this function");
     }
-    for(let i = 0; i < n; i++) {
-        for(let j = i+1; j < n; j++) {
+    for(var i = 0; i < n; i++) {
+        for(var j = i+1; j < n; j++) {
             if(nums[i] + nums[j] == target) {
                 a = nums[i];
                 b = nums[j];
@@ -120,7 +120,7 @@ function twoSum(nums,target) {
     } return ("["+x+", "+y+"]")
 }
 
-let result=twoSum([2, 11, 7, 15], 9);
+var result=twoSum([2, 11, 7, 15], 9);
 console.log(result);
 
 
@@ -128,7 +128,7 @@ console.log(result);
 function maxZeros(nums) {
     var count = 0;
     var result = 0;
-    for(let i=0; i<nums.length; i++)
+    for(var i=0; i<nums.length; i++)
         if (nums[i] == 1) {
             count = 0;
         }
