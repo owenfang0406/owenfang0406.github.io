@@ -32,10 +32,6 @@ data = {
     ]
 }
 
-# print(data["employees"])
-# print(data["employees"][2])
-# print(data["employees"][2]["manager"])
-
 def avg(data):
     n = len(data["employees"])
     sum = 0
@@ -46,12 +42,9 @@ def avg(data):
             count += 1
     print(int(sum/count))       
     return int(sum/count)
-        # for item in x:
-        #     print(item["name"])
 
-# print("===")
 avg(data)
-# print("===")
+
 
 def func(a):
     def multiply(b,c):
@@ -99,9 +92,7 @@ def twoSum(nums, target):
             if nums[i]+nums[j] == target:
                 a=i
                 b=j
-    # result = "["+str(a)+","+str(b)+"]"
     result = f"[{a},{b}]"
-    # print(i+","+j)
     return result
 
 

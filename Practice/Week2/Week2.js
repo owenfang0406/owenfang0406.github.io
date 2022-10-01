@@ -2,10 +2,8 @@ function calculate (min,max,step) {
     var sum =0;
     var a = min;
     var b = max;
-    var arr = [];
     for(i = min; i<=max; i += step){
         sum += i;
-        arr.push(i);
         b = i;
     }
     console.log(sum)
@@ -32,8 +30,7 @@ var data ={
     "manager":false }]
     };
     
-    var x = data.employees[0].manager;
-    function avg (data) {
+function avg (data) {
     var n = data.employees.length;
     var salary = 0;
     var count = 0;
@@ -44,7 +41,7 @@ var data ={
             }
         }
     console.log(salary/count)
-    }
+}
     
 avg(data);
 
@@ -55,12 +52,8 @@ function func(a) {
         console.log(sum);
         return sum
     }
-
 }
 
-function  add(a,b) {
-    
-}
 
 func(2)(3,4)
 func(5)(1, -5)
@@ -68,23 +61,18 @@ func(-3)(2, 9)
 
 function maxProduct (arr) {
     var n = arr.length;
-    if(n<2) {
-        console.log("No pairs exists"+"<br>");
-        return;
-    }
-    // if(n==2) {
-    //     document.write("the result is "+ arr[0]*arr[1])
-    // }
-    var result = arr[0]*arr[1];
-    for(var i = 0; i<n ; i++) {
-        for(var j = i+1 ; j < n; j++) {
-            if(arr[i]*arr[j] > result)  {
-                // var result2 = "";
-                result = arr[i]*arr[j];
-                // result2=Math.max(result,result2);
+        if(n<2) {
+            console.log("No pairs exists"+"<br>");
+            return;
+        }
+        var result = arr[0]*arr[1];
+        for(var i = 0; i<n ; i++) {
+            for(var j = i+1 ; j < n; j++) {
+                if(arr[i]*arr[j] > result)  {
+                    result = arr[i]*arr[j];
+                }
             }
         }
-    }
     console.log(result)
 }
 
@@ -104,20 +92,21 @@ function twoSum(nums,target) {
     var x= 0;
     var y= 1;
     var final = nums[0]+nums[1];
-    if(n<2) {
-        document.write("Not enough elements for this function");
-    }
-    for(var i = 0; i < n; i++) {
-        for(var j = i+1; j < n; j++) {
-            if(nums[i] + nums[j] == target) {
-                a = nums[i];
-                b = nums[j];
-                x = i;
-                y = j;
-                final = nums[i]+nums[j];
-            }    
+        if(n<2) {
+            document.write("Not enough elements for this function");
         }
-    } return ("["+x+", "+y+"]")
+        for(var i = 0; i < n; i++) {
+            for(var j = i+1; j < n; j++) {
+                if(nums[i] + nums[j] == target) {
+                    a = nums[i];
+                    b = nums[j];
+                    x = i;
+                    y = j;
+                    final = nums[i]+nums[j];
+                }    
+            }
+        } 
+    return ("["+x+", "+y+"]")
 }
 
 var result=twoSum([2, 11, 7, 15], 9);

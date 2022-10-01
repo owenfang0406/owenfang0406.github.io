@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>AJAX 練習</h3>
+    <button onclick="getData()">取得資料</button>
+    <div id="results">
+
+    </div>
+
+    <script>
+        function getData() {
+            fetch("https://ptx.transportdata.tw/MOTC/v2/Bike/Availability/NearBy?$spatialFilter=nearby(25.047675,121.517055,1000)&?$top=1&$format=JSON").then(function(Response) {
+                return Response.json();
+            }).then(function(data){
+                let results = document.querySelector("#results");
+                results.innerHTML="";
+                for(let i = 0; i < data.length; i++){
+                    let innerData = data[i];
+                    console.log(innerData);
+                    results.innerHTML += "<div>"+innerData.AvailableReturnBikes+","+innerData.SrcUpdateTime+","+innerData.StationUID+"</div>"
+
+                }
+                    
+                    
+
+            })
+            
+        }
+    </script>
+</body>
+</html>
