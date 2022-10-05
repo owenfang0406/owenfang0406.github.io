@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="week1.css">
+</head>
+<body>
+    <div class="hamburger">
+                <label>
+                    <input type="checkbox" id="checkbox">
+                        <div class="toggle">
+                                <span class="top_line common"></span>
+                                <span class="middle_line common"></span>
+                                <span class="bottom_line common"></span>
+                        </div>
+
+                        <div class="slide" id="slide">
+                             <ul class="slideList">
+                                <li><a href="">Item1</a></li>
+                                <li><a href="">Item2</a></li>
+                                <li><a href="">Item3</a></li>
+                                <li><a href="">Item4</a></li>
+                        </ul>
+                         </div>
+            </label>
+    </div>
+    <header onclick="hide()">
+            <div class="logo">My Website</div>
+    
+        <!-- <div class="hamburger">
+            <label>
+                <input type="checkbox">
+                    <div class="toggle">
+                            <span class="top_line common"></span>
+                            <span class="middle_line common"></span>
+                            <span class="bottom_line common"></span>
+                    </div>
+
+                <div class="slide">
+                    <ul class="slideList">
+                        <li><a href=""><i>Item1</i></a></li>
+                        <li><a href=""><i>Item2</i></a></li>
+                        <li><a href=""><i>Item3</i></a></li>
+                        <li><a href=""><i>Item4</i></a></li>
+                    </ul>
+                </div>
+    </div>
+        </label> -->
+        <nav class="navBar">
+            <ul class="list">
+                <li>Item1</li>
+                <li>Item2</li>
+                <li>Item3</li>
+                <li>Item4</li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <div class="content" onclick="hide()">
+        <span class="contentText">Welcome to MyHome</span>
+    </div>
+    <div class="container" onclick="hide()">
+        <div class="container1">
+            <div class="longBox" id = "longBox">
+                    <!-- <img class="longBoxImg" src="pic.jpeg" alt=""> 
+                    <div class="innerLongBox" id="ineerLongBox">Promotion1</div> -->
+                </div>
+                <!-- <div class="innerLongBox" id="ineerLongBox"></div> -->
+                <div class="longBox" id = "longBox">
+                    <!-- <img class="longBoxImg"src="pic.jpeg" alt="" style="width:80px">
+                    <div class="innerLongBox" id="ineerLongBox">Promotion2</div>  -->
+                </div>
+            </div>
+            <!-- <div class="longBox">
+                <img class="longBoxImg"src="pic.jpeg" alt="" style="width:80px">
+                <div class="innerLongBox" >Promotion2</div> 
+            </div> -->
+        </div>
+            <div class="containerBody">
+                <div class="container2" id="container2">
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box" id="box"> -->
+                            <!-- <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title1</div>
+                            <img src="star.webp" alt="" class="star"> -->
+                        <!-- </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box" id="box"> -->
+                            <!-- <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title2</div>
+                            <img src="star.webp" alt="" class="star"> -->
+                        <!-- </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title3</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                        
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title4</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title5</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title6</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title7</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                    </div>
+                    <div class="boxContainer" id="boxContainer">
+                        <!-- <div class="box">
+                            <img class="boxImg" src="pic.jpeg" alt="">
+                            <div class="title">Title8</div>
+                            <img src="star.webp" alt="" class="star">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="btnContainer" id="btnContaoner">
+                <button onclick="clickLoadMore()" class="btn" id="btn">Load More</button>
+            </div>
+        
+    </div>
+    <script src = "week3.js">
+
+        function hide() {
+           var checkbox = document.getElementById('checkbox');
+           if(checkbox.checked){
+            checkbox.checked = false;
+           }
+        }
+
+    </script>
+</body>
+</html>

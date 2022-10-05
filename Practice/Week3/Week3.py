@@ -10,28 +10,29 @@ response = requests.get('https://padax.github.io/taipei-day-trip-resources/taipe
 # print(response.json())
 results = response.json()["result"]["results"]
 
-Dates = "2015/01/01"
 CSVData=[]
-delimeter ="\n"
 
-for items in results:
+def regexFind (s):
+    print(s)
+    # list comprehension
+    return [m.start(0) for m in re.finditer(r"(http|https)://", s)]
+    
+def getFirstFile(s):
+    for items in results:
 
-    if time.strptime(items["xpostDate"], "%Y/%m/%d")[0] >= 2015:
+        if time.strptime(items["xpostDate"], "%Y/%m/%d")[0] >= 2015:
+            # result = regexFind(items["file"])
+            # print(result)
+            print(items["file"].split("https://")[1])
             file = items["file"].split("https://")[1]
-            data = (items["stitle"], items["address"][5:8], items["longitude"], items["latitude"], file)
+            data = (items["stitle"], items["address"][5:8], items["longitude"], items["latitude"], "https://" + file)
             dataString = ",".join(data)
             CSVData.append(dataString)
+           
 
-# def regexFind (s):
-#     result = re.findall(r"(http|https)://", s)
-#     print(result)
-
-
+getFirstFile(results)
 
 CSVData = "\n".join(CSVData)
-print("===")
-print(type(items["file"]))
-print(CSVData)
 
 with open("QueryResults.csv", mode="w", encoding="utf-8") as file:
     file.write(CSVData)
