@@ -22,10 +22,6 @@ function handleData(json) {
             file: file
         })
     }
-    // console.log("=====================")
-    console.log(objects)
-    // console.log("=====================")
-    console.log(objects[0]["title"])
     return objects
 }
 
@@ -41,7 +37,7 @@ fetch('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assi
         const longBox = document.querySelectorAll("#longBox")
 
         for (i = 0; i < 2; i++) {
-            const filePic = "https://" + objects[i+1]["file"][1];
+            const filePic = "https://" + objects[i + 1]["file"][1];
             const image = document.createElement("img");
             const titles = objects[i]["title"]
             const title = document.createElement("div")
@@ -53,7 +49,7 @@ fetch('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assi
             longBox[i].appendChild(title);
 
         }
-        for( i = 0; i < (box.length+2); i++) {
+        for (i = 0; i < (box.length + 2); i++) {
             const filePic = "https://" + objects[i + 2]["file"][1]
             const image = document.createElement("img");
             const titles = objects[i + 2]["title"]
@@ -64,43 +60,41 @@ fetch('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assi
             title.classList.add("title");
             title.innerText = titles;
             box[i].appendChild(title);
-            
-            
+
+
 
         }
-      
+
     })
 
-    let pageIndex = 0;
+let pageIndex = 0;
 
-    const box = document.querySelectorAll("#boxContainer")
-    const boxContainer = document.getElementById("container2")
-    function clickLoadMore() {
-        for(let i = (8 * pageIndex); i < 8 * (pageIndex + 1); i++){
-            const filePic = "https://" + storedObjects[i + 10]["file"][1]
-            const newBox = document.createElement("div");
-            const newImg = document.createElement("img");
-            const titles = storedObjects[i + 10]["title"];
-            const title = document.createElement("div");
-            newBox.classList.add("boxContainer");
-            newBox.setAttribute("id","boxContainer");
-            boxContainer.appendChild(newBox);
-            newImg.classList.add("boxImg");
-            newImg.src = filePic;
-            newBox.appendChild(newImg);
-            title.classList.add("title");
-            title.innerText = titles;
-            newBox.append(title);
-            console.log(i);
+const box = document.querySelectorAll("#boxContainer")
+const boxContainer = document.getElementById("container2")
+function clickLoadMore() {
+    for (let i = (8 * pageIndex); i < 8 * (pageIndex + 1); i++) {
+        const filePic = "https://" + storedObjects[i + 10]["file"][1]
+        const newBox = document.createElement("div");
+        const newImg = document.createElement("img");
+        const titles = storedObjects[i + 10]["title"];
+        const title = document.createElement("div");
+        newBox.classList.add("boxContainer");
+        newBox.setAttribute("id", "boxContainer");
+        boxContainer.appendChild(newBox);
+        newImg.classList.add("boxImg");
+        newImg.src = filePic;
+        newBox.appendChild(newImg);
+        title.classList.add("title");
+        title.innerText = titles;
+        newBox.append(title);
+        console.log(i);
 
-            if (i == (storedObjects.length - 11)) {
-                const btn = document.getElementById("btn");
-                btn.style.display = "none";
-                }
-            
+        if (i == (storedObjects.length - 11)) {
+            const btn = document.getElementById("btn");
+            btn.style.display = "none";
         }
-        pageIndex += 1;
-        console.log(pageIndex);
-        console.log(storedObjects.length)
-        
+
     }
+    pageIndex += 1;
+
+}
