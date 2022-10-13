@@ -36,10 +36,6 @@
             font-size: 30px;
         }
 
-        form{
-            position: relative;
-        }
-
         button {
             background-color: darkcyan;
             color: white;
@@ -66,26 +62,48 @@
     <header class="header">
         <center><h1>{{greeting}}</h1></center>
     </header>
-    <form action="/signin", method="POST">
         <div class="container">
-            <div class="singInTitle">
-                <div>登入系統</div>
-            </div>
-            <div class="uname">
-                <label for="uname"><b>帳號</b></label>
-                <input type="text" placeholder="請輸入帳號" name="uname">
-            </div>
-            <div class="psw">
-                <label for="psw"><b>密碼</b></label>
-                <input type="password" placeholder="請輸入密碼" name="psw">
-            </div>
-            <div class="loginbtn">
-                <button type="submit">登入</button>
-            </div>
+            <form action="/signin", method="POST"> 
+                <div class="singInTitle">
+                    <div>登入系統</div>
+                </div>
+                <div class="uname">
+                    <label for="uname"><b>帳號</b></label>
+                    <input type="text" placeholder="請輸入帳號" name="uname">
+                </div>
+                <div class="psw">
+                    <label for="psw"><b>密碼</b></label>
+                    <input type="password" placeholder="請輸入密碼" name="psw">
+                </div>
+                <div class="loginbtn">
+                    <button type="submit">登入</button>
+                </div>
+            </form>
+            <form id = "squareForm" onsubmit="mynum()">
+                <div class="container">
+                    <div class="singInTitle">
+                        <div>計算正整數的平方</div>
+                    </div>
+                    <div class="uname">
+                        <label for="number"><b>正整數</b></label>
+                        <input type="text" name="number">
+                    </div>
+                    <div class="loginbtn">
+                        <button type="submit">計算</button>
+                    </div>
+                </div>
+            </form>
         </div>
             
 
         </div>
-    </form>
+    <script>
+        function mynum() {
+            let action_src = "http://127.0.0.1:3000/square/" + document.getElementsByName("number")[0].value;
+            let myform = document.getElementById("squareForm");
+            myform.action = action_src;
+        }
+    </script>
+    
 </body>
 </html>

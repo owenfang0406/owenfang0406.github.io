@@ -27,6 +27,14 @@
             width: 70%;
             height: 500px;
         }
+        button {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width:130px;
+        }
     </style>
 </head>
 <body>
@@ -35,6 +43,9 @@
     </header>
     <div class="container">
         <center><h2>{{message}}</h2></center>
+        <form action="/signout">
+            <button type="submit">登出系統</button>
+        </form>
     </div>
 </body>
 </html>
