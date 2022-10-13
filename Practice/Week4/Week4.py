@@ -44,7 +44,6 @@ def signout():
 
 @app.route("/square/<number>")
 def square(number):
-    # number = request.args.get("number", default=3)
     number = int(number)
     result = number * number
     return render_template("square.htm", greeting = "正整數平方計算結果", message = str(result))
