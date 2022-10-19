@@ -1,9 +1,11 @@
 #Week5 HW
 >需求2
+---
 ![需求2](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/1.png)
 ---
 >需求3
 ![需求3](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2.png)
+---
 insert into member(id, name, username, password, follow_count)values (0, 'tester', 'test', 'test', 5);
 insert into member(id, name, username, password, follow_count)values (2, 'adminr', 'admint', '12345t', 55);
 insert into member(id, name, username, password, follow_count)values (3, 'Owen', 'Owen0406t', '67890zt', 53);
@@ -17,7 +19,9 @@ SELECT * from member WHERE username = 'test2';
 UPDATE member SET username = 'test2' WHERE id = 1;
 ---
 >需求4
+---
 ![需求4](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/3.png)
+---
 SELECT COUNT(*) id from member;
 SELECT SUM(follow_count) from member;
 SELECT AVG(follow_count) from member;
