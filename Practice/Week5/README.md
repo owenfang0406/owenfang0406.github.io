@@ -1,5 +1,5 @@
 #Week5 HW
->需求2
+>需求3 新增資料
 ---
 ![需求2](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/1.png)
 ---
@@ -14,7 +14,7 @@ insert into member(id, name, username, password, follow_count)values (4, 'User_W
 insert into member(id, name, username, password, follow_count)values (5, 'User_Tom"', 'Tom', 'aaabbb', 4455);
 
 ---
->需求3
+>需求3 查詢資料
 ---
 ![需求3](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2.png)
 ---
@@ -31,7 +31,7 @@ SELECT * from member WHERE username = 'test2';
 UPDATE member SET username = 'test2' WHERE id = 1;
 
 ---
->需求4
+>需求4 計算資料
 ---
 ![需求4](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/3.png)
 ---
