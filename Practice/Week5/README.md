@@ -4,6 +4,7 @@
 ![需求2](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/1.png)
 ---
 >需求3
+---
 ![需求3](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2.png)
 ---
 insert into member(id, name, username, password, follow_count)values (0, 'tester', 'test', 'test', 5);
