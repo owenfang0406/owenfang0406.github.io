@@ -18,28 +18,28 @@ insert into member(id, name, username, password, follow_count)values (5, 'User_T
 ---
 ![需求3](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2.png)
 ---
-SELECT * from member;
+select * from member;
 
-SELECT * from member ORDER BY time desc;
+select * from member order by time desc;
 
-SELECT * from member WHERE username = 'test';
+select * from member where username = 'test';
 
-SELECT * from member WHERE username = 'test' and password = 'test';
+select * from member where username = 'test' and password = 'test';
 
-SELECT * from member WHERE username = 'test2';
+select * from member where username = 'test2';
 
-UPDATE member SET username = 'test2' WHERE id = 1;
+update member set username = 'test2' where id = 1;
 
 ---
 >需求4 計算資料
 ---
 ![需求4](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/3.png)
 ---
-SELECT COUNT(*) id from member;
+select COUNT(*) id from member;
 
-SELECT SUM(follow_count) from member;
+select SUM(follow_count) from member;
 
-SELECT AVG(follow_count) from member;
+select AVG(follow_count) from member;
 ---
 
 >需求5 Join 兩張 Table 查詢
