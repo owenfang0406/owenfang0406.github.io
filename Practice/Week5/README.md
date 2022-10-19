@@ -50,15 +50,16 @@ select AVG(follow_count) from member;
 
 create table message (
 
-    id bigint primary key auto_increment,
+id bigint primary key auto_increment,
 
-    member_id bigint not null,
+member_id bigint not null,
 
-    content varchar(255) not null,
+content varchar(255) not null,
 
-    like_count int not null default 0,
+like_count int not null default 0,
 
-    time datetime not null default current_timestamp
+time datetime not null default current_timestamp
+
 );
 
 >新增表格資料
@@ -90,6 +91,7 @@ select member.id, member.name, member.username, message.member_id, message.conte
 inner join member
 
 on message.member_id = member.id;
+
 ---
 ![需求5](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/5.png)
 ---
