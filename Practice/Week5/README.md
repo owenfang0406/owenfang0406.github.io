@@ -44,8 +44,8 @@ select COUNT(*) id from member;
 select SUM(follow_count) from member;
 
 select AVG(follow_count) from member;
----
 
+---
 >需求5 Join 兩張 Table 查詢
 ---
 ![需求5](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/4.png)
