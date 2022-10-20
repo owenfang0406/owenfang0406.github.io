@@ -22,13 +22,11 @@ select * from member;
 
 select * from member order by time desc;
 
-select * from member order by time desc limit 2,4;
+select * from member order by time desc limit 1,3;
 
 select * from member where username = 'test';
 
 select * from member where username = 'test' and password = 'test';
-
-select * from member where username = 'test';
 
 update member set name = 'tes2' where username = 'test';
 
@@ -39,7 +37,7 @@ update member set name = 'tes2' where username = 'test';
 ---
 ![需求4](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/3.png)
 ---
-select COUNT(*) id from member;
+select COUNT(username) from member;
 
 select SUM(follow_count) from member;
 
