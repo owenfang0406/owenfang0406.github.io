@@ -31,6 +31,7 @@ select * from member where username = 'test' and password = 'test';
 select * from member where username = 'test';
 
 update member set name = 'tes2' where username = 'test';
+
 ---
 ![需求3 update語法](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2.1.png)
 ---
