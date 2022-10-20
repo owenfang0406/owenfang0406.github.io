@@ -22,14 +22,16 @@ select * from member;
 
 select * from member order by time desc;
 
+select * from member order by time desc limit 2,4;
+
 select * from member where username = 'test';
 
 select * from member where username = 'test' and password = 'test';
 
-select * from member where username = 'test2';
+select * from member where username = 'test';
 
-update member set username = 'test2' where id = 1;
-
+update member set name = 'tes2' where username = 'test';
+![需求3 update語法](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/2 update syntax.png)
 ---
 >需求4 計算資料
 ---
@@ -95,7 +97,7 @@ on message.member_id = member.id;
 ---
 ![需求5](https://github.com/owenfang0406/owenfang0406.github.io/blob/main/Practice/Week5/5.png)
 ---
->配合 join 顯示 username = 'test2' 由於先前需求 username test update成 test2
+>配合 join 顯示 username = 'test'
 
 select member.id, member.username, message.member_id, message.content from message
 
@@ -103,9 +105,9 @@ inner join member
 
 on message.member_id = member.id
 
-where member.username = 'test2';
+where member.username = 'test';
 
->配合 join 查詢出 username = test2 且 按讚數平均值
+>配合 join 查詢出 username = test 且 按讚數平均值
 
 select member.username, message.member_id, avg(message.like_count) from message
 
@@ -113,6 +115,6 @@ inner join member
 
 on message.member_id = member.id
 
-where username = 'test2'
+where username = 'test'
 
 group by member_id;
