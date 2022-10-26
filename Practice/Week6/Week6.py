@@ -7,7 +7,7 @@ import re
 db = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    passwd = "Ppp0935082190",
+    passwd = "",
     database = "website"
 )
 myCursor = db.cursor()
@@ -18,7 +18,7 @@ app.permanent_session_lifetime = timedelta(minutes=5)
 
 @app.route("/")
 def index():
-    if "user" in session:
+    if "username" in session:
         return redirect("/member")
     else:
         return render_template("loginPage.htm", greeting ="歡迎光臨，請註冊登入系統")
@@ -82,7 +82,10 @@ def signUp():
             inputInsertion = (name, uname, psw)
             myCursor.execute(insertionCd,inputInsertion)
             db.commit()
-            return redirect(url_for("ismember"), greeting ="註冊成功，請重新登入")
+            uname = request.form["uname"]
+            session["loggedin"] = True
+            session["username"] = uname
+            return redirect("/member")
 
 @app.route("/member")
 def ismember():
@@ -111,6 +114,7 @@ def pushContents():
     content = request.form["msg"]
     uname = session["username"]
     queryCondition = (uname,)
+    myCursor = db.cursor(buffered=True)
     queryUserID = """
     select id from member where name = %s
     """
@@ -118,6 +122,7 @@ def pushContents():
     member_id = myCursor.fetchone()
     if content != "":
         updateContent = (member_id[0], content,)
+        print(updateContent)
         updateContentSQL = """
         insert into message(member_id, content)
         values (%s, %s)
