@@ -1,6 +1,4 @@
 from datetime import timedelta
-from os import uname
-from unicodedata import name
 from flask import redirect, Flask, request, render_template, session, url_for
 import mysql.connector
 import re
@@ -44,14 +42,6 @@ def checkIDpsw():
             return redirect(url_for("ismember"))
         else:
             return redirect("/error?message=帳號或密碼輸入錯誤")
-            
-    # if uname != "" and psw != "":
-    #     if uname == "test" and psw == "test":
-    #         session["user"] = uname
-    #         session.permanent = True
-    #         return redirect("/member")
-    #     else:
-    #         return redirect("/error?message=帳號或密碼輸入錯誤")
 
 @app.route("/error")
 def displayErr():
@@ -122,7 +112,6 @@ def pushContents():
     member_id = myCursor.fetchone()
     if content != "":
         updateContent = (member_id[0], content,)
-        print(updateContent)
         updateContentSQL = """
         insert into message(member_id, content)
         values (%s, %s)
