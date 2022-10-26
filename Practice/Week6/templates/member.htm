@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+    <style>
+         body {
+            margin: 0px;
+            margin-top: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: rgb(22, 39, 54);
+            color: white;
+        }
+
+        h1 {
+           margin: auto; 
+           padding: 40px;
+        }
+        .container {
+            margin: auto;
+            text-align: center;
+            width: 70%;
+            height: 500px;
+        }
+        button {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width:130px;
+        }
+        .loginbtn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <center><h1>{{greeting}}</h1></center>
+    </header>
+    <div class="container">
+        <center><h2>{{user}}{{message}}</h2></center>
+        <form action="/signout">
+            <button type="submit">登出系統</button>
+        </form>
+        <hr style="width:100%">
+        <form action="/pushContents", method="POST">
+            <center><h1><b>快來留言吧</b></h1></center>
+            <div style="padding-right: 5%;">
+                <label for="msg" style="font-size:30px;margin-right: 10px"><b>內容</b></label>
+                <input type="text" name="msg" style="width: 300px; height:40px; font-size: 20px;">
+            </div>
+                <div class="loginbtn">
+                    <button type="submit">送出</button>
+                </div>
+        </form>
+        <hr style="width:100%">
+        <div>
+        {% for content in content %}
+            <li style="list-style:none; text-align: left; padding-left:30%;"  >{{content[0]}}: {{content[1]}}</li>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系統登入頁</title>
+    <style>
+        body {
+            margin: 0px;
+            margin-top: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: rgb(22, 39, 54);
+            color: white;
+        }
+
+        h1 {
+           margin: auto; 
+           padding: 40px;
+        }
+
+        .container {
+            margin: auto;
+            text-align: center;
+            width: 70%;
+            height: 1500px;
+        }
+
+        .signInTitle{
+            color: black;
+            font-weight: bold;
+            padding-top: 50px;
+            font-size: 30px;
+        }
+
+        button {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width:80px;
+        }
+
+        button:hover{
+            opacity: 0.8;
+        }
+        input[type=text], input[type=password] {
+            width: 300px;
+            padding: 12px 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <center><h1>{{greeting}}</h1></center>
+    </header>
+        <div class="container">
+            <form action="/signup", method="POST">
+                    <div class="signInTitle">
+                        <div>註冊帳號</div>
+                    </div>
+                    <div class="name">
+                        <label for="name"><b>姓名</b></label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="uname">
+                        <label for="uname"><b>帳號</b></label>
+                        <input type="text" name="uname" required>
+                    </div>
+                    <div class="psw">
+                        <label for="psw"><b>密碼</b></label>
+                        <input type="password" name="psw" required>
+                    </div>
+                    <div class="loginbtn">
+                        <button type="submit">註冊</button>
+                    </div>
+            </form>
+            <form action="/signin", method="POST"> 
+                <div class="signInTitle">
+                    <div>登入系統</div>
+                </div>
+                <div class="uname">
+                    <label for="uname"><b>帳號</b></label>
+                    <input type="text" placeholder="請輸入帳號" name="uname" required>
+                </div>
+                <div class="psw">
+                    <label for="psw"><b>密碼</b></label>
+                    <input type="password" placeholder="請輸入密碼" name="psw" required>
+                </div>
+                <div class="loginbtn">
+                    <button type="submit">登入</button>
+                </div>
+            </form>
+        </div>
+            
+
+        </div>
+    <!-- <script>
+        function mynum() {
+            let action_src = "http://127.0.0.1:3000/square/" + document.getElementsByName("number")[0].value;
+            let myform = document.getElementById("squareForm");
+            myform.action = action_src;
+        }
+    </script> -->
+    
+</body>
+</html>
