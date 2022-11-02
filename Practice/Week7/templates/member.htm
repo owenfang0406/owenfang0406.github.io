@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+    <style>
+         body {
+            margin: 0px;
+            margin-top: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: rgb(22, 39, 54);
+            color: white;
+        }
+
+        h1 {
+           margin: auto; 
+           padding: 40px;
+        }
+        .container {
+            margin: auto;
+            text-align: center;
+            width: 70%;
+            height: 500px;
+        }
+        button {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width:130px;
+        }
+        .loginbtn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <center><h1>{{greeting}}</h1></center>
+    </header>
+    <div class="container">
+        <center><h2 id="name">{{user}}{{message}}</h2></center>
+        <form action="/signout">
+            <button type="submit">登出系統</button>
+        </form>
+        <hr style="width:100%">
+        <form>
+            <center><h1><b>查詢會員姓名</b></h1></center>
+            <div style="padding-left: 10%">
+                <input id="userQuery" type="text" name="msg" style="width: 300px; height:40px; font-size: 20px;">
+                <button id = "btn" type="button" class="loginbtn" onclick="getDataFirst()">查詢</button>
+            </div>
+        </form>
+        <div id="contentBox" style="padding-top: 30px">
+        </div>
+        <form>
+            <center><h1><b>更新我的姓名</b></h1></center>
+            <div style="padding-left: 10%">
+                <input id="userUpdate" type="text" name="msg" style="width: 300px; height:40px; font-size: 20px;">
+                <button id = "btnUpdate" type="button" class="loginbtn" onclick="updateUserName()">更新</button>
+            </div>
+        </form>
+        <div id="UpdateBox" style="padding-top: 30px">
+        </div>
+    </div>
+    <script>
+        async function getData(url){
+            const response = await fetch(url);
+            const data = await response.json();
+            return data
+        };
+
+        function getDataFirst(){
+            let username =document.querySelector("#userQuery").value;
+            let url = "http://127.0.0.1:3000/api/member?username=";
+            let url2 = url+username;
+            console.log(url2);
+            result = getData(url2).then(function(result){
+            result = JSON.parse(JSON.stringify(result.data));
+            if (result.name){
+            document.querySelector("#contentBox").innerHTML = result.name;
+            }}).catch(err =>{
+            document.querySelector("#contentBox").innerHTML = "找無此會員";
+            })}
+        
+        function updateUserName(){
+            let newname =document.querySelector("#userUpdate").value;
+            const name = document.querySelector("#name").innerHTML
+            let greeting = name.split('，')[1];
+            let newGreeting = newname + '，' + greeting
+            let url = "http://127.0.0.1:3000/api/member";
+            if (newname == ""){
+                document.querySelector("#UpdateBox").innerHTML = "輸入為空值請重新輸入"
+                return "Input is empty"
+            }
+            const updateData = {
+                    'name': newname
+            }
+            fetch(url,{
+                body: JSON.stringify(updateData),
+                method:'PATCH',
+                headers:{
+                    'content-type': 'application/json; charset=UTF-8',
+                    Accept: 'application/json'
+                }
+            }).then(response => response.json()).then(
+               response => console.log(response),
+               document.querySelector("#name").innerHTML = newGreeting,
+               document.querySelector("#UpdateBox").innerHTML = "更新成功",
+               document.querySelector("#userUpdate").value = ""
+            )
+        };
+    </script>
+</body>
+</html>
