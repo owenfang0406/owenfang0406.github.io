@@ -9,7 +9,7 @@ import re, json
 db = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    passwd = "Ppp0935082190",
+    passwd = "",
     database = "website"
 )
 myCursor = db.cursor()
@@ -30,13 +30,6 @@ def doJSON(tuple):
         infoJSON = json.dumps(dataDict, indent=5,ensure_ascii=False)
         return infoJSON
 
-
-
-        
-
-
-    
-
 @app.route("/")
 def index():
     if "username" in session:
@@ -46,7 +39,6 @@ def index():
 
 @app.route("/signin", methods=["POST"])
 def checkIDpsw():
-    msg = ''
     if request.method == 'POST' and 'uname' in request.form and 'psw' in request.form:
         uname = request.form["uname"]
         psw = request.form["psw"]
@@ -61,7 +53,6 @@ def checkIDpsw():
             session["loggedin"] = True
             session["username"] = account[1]
             session.permanent = True
-            msg = "登入成功"
             return redirect(url_for("ismember"))
         else:
             return redirect("/error?message=帳號或密碼輸入錯誤")
@@ -73,7 +64,6 @@ def displayErr():
 
 @app.route("/signup", methods=["POST"])
 def signUp():
-    msg = ''
     if request.method == 'POST' and 'uname' in request.form and 'psw' in request.form:
         name = request.form["name"]
         uname = request.form["uname"]
@@ -102,22 +92,15 @@ def signUp():
             myCursor.execute(IDsql,idArgs)
             userInfo = myCursor.fetchone()
             infoJSON = doJSON(userInfo)
-            uname = request.form["uname"]
             session["loggedin"] = True
             session["username"] = uname
+            session.permanent = True
             return redirect("/member")
 
 @app.route("/member")
 def ismember():
     if "username" and "loggedin" in session:
         user = session["username"]
-        # queryContentSQL = """
-        # select member.username, message.content from message
-        # inner join member
-        # on message.member_id = member.id
-        # """
-        # myCursor.execute(queryContentSQL)
-        # content = myCursor.fetchall()
         return render_template("/member.htm", user = user, greeting="歡迎光臨，這是會員頁", message = "，歡迎登入系統")
     else:
         return redirect(url_for("index"))
@@ -129,34 +112,11 @@ def signout():
     session.pop("_permanent", None)
     return redirect("/")
 
-@app.route("/pushContents", methods = ["POST"])
-def pushContents():
-    content = request.form["msg"]
-    uname = session["username"]
-    queryCondition = (uname,)
-    myCursor = db.cursor(buffered=True)
-    queryUserID = """
-    select id from member where name = %s
-    """
-    myCursor.execute(queryUserID,queryCondition)
-    member_id = myCursor.fetchone()
-    if content != "":
-        updateContent = (member_id[0], content,)
-        updateContentSQL = """
-        insert into message(member_id, content)
-        values (%s, %s)
-        """
-        myCursor.execute(updateContentSQL,updateContent)
-        return redirect("/member")
-
-    else:
-        return redirect(url_for("ismember"))
-
 @app.route("/api/member", methods = ["GET","PATCH"])
 def loopUpMemberAPI():
     if "username" and "loggedin" in session:
-        uname =request.args.get('username')
         if request.method == 'GET':
+            uname =request.args.get('username')
             if uname != "":
                 IDsql =  """
                 select id, name, username from member where username = %s
@@ -197,7 +157,6 @@ def loopUpMemberAPI():
                         'error':'true'
                     }
                 ))
-
         else:
             return
     else: 

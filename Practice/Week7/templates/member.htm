@@ -80,7 +80,6 @@
             let username =document.querySelector("#userQuery").value;
             let url = "http://127.0.0.1:3000/api/member?username=";
             let url2 = url+username;
-            console.log(url2);
             result = getData(url2).then(function(result){
             result = JSON.parse(JSON.stringify(result.data));
             if (result.name){
