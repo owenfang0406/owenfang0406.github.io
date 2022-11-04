@@ -88,11 +88,9 @@
             document.querySelector("#contentBox").innerHTML = "找無此會員";
             })}
         
-        function updateUserName(){
+        function updateUserName()
+        {
             let newname =document.querySelector("#userUpdate").value;
-            const name = document.querySelector("#name").innerHTML
-            let greeting = name.split('，')[1];
-            let newGreeting = newname + '，' + greeting
             let url = "http://127.0.0.1:3000/api/member";
             if (newname == ""){
                 document.querySelector("#UpdateBox").innerHTML = "輸入為空值請重新輸入"
@@ -109,11 +107,15 @@
                     Accept: 'application/json'
                 }
             }).then(response => response.json()).then(
-               response => console.log(response),
-               document.querySelector("#name").innerHTML = newGreeting,
-               document.querySelector("#UpdateBox").innerHTML = "更新成功",
-               document.querySelector("#userUpdate").value = ""
-            )
+               (response) => {
+                if (response.ok) {
+                    document.querySelector("#name").innerHTML = Object.values(response)[0],
+                    document.querySelector("#UpdateBox").innerHTML = Object.values(response)[1],
+                    document.querySelector("#userUpdate").value = ""
+                }
+                    }, function(err){
+                        document.querySelector("#UpdateBox").innerHTML = "更新失敗"
+                    })
         };
     </script>
 </body>

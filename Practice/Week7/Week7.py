@@ -6,6 +6,7 @@ from unittest import result
 from flask import jsonify, make_response, redirect, Flask, request, render_template, session, url_for
 import mysql.connector
 import re, json
+
 db = mysql.connector.connect(
     host = "localhost",
     user = "root",
@@ -23,11 +24,11 @@ def doJSON(tuple):
     dataDict['data']= dict()
     if tuple != None:
         dataDict['data']={'id':tuple[0],'name':tuple[1],'username':tuple[2]}
-        infoJSON = json.dumps(dataDict, indent=5,ensure_ascii=False)
+        infoJSON = jsonify(dataDict)
         return infoJSON
     elif tuple == None:
         dataDict['data'] = None
-        infoJSON = json.dumps(dataDict, indent=5,ensure_ascii=False)
+        infoJSON = jsonify(dataDict)
         return infoJSON
 
 @app.route("/")
@@ -52,6 +53,7 @@ def checkIDpsw():
         if account:
             session["loggedin"] = True
             session["username"] = account[1]
+            session["id"] = account[0]
             session.permanent = True
             return redirect(url_for("ismember"))
         else:
@@ -91,9 +93,9 @@ def signUp():
             idArgs = (uname,)
             myCursor.execute(IDsql,idArgs)
             userInfo = myCursor.fetchone()
-            infoJSON = doJSON(userInfo)
+            session["id"] = userInfo[0]
             session["loggedin"] = True
-            session["username"] = uname
+            session["username"] = userInfo[1]
             session.permanent = True
             return redirect("/member")
 
@@ -110,6 +112,7 @@ def signout():
     session.pop("username", None)
     session.pop("loggedin", None)
     session.pop("_permanent", None)
+    session.pop("id", None)
     return redirect("/")
 
 @app.route("/api/member", methods = ["GET","PATCH"])
@@ -131,32 +134,28 @@ def loopUpMemberAPI():
                     userInfo = doJSON(userInfo)
                     return userInfo
             else:
-                return "please input username for query"
+                return jsonify(error = "please input username for query") 
         elif request.method == 'PATCH':
             if "username" and "loggedin" in session:
                 newname = request.json['name']
-                name = session['username']
+                id = session["id"]
                 updateSQL = """
                 update member
                 set name = %s
-                where name = %s
+                where id = %s
                 """
-                updateArgs = (newname, name)
+                updateArgs = (newname, id)
                 myCursor.execute(updateSQL,updateArgs)
                 db.commit()
                 session.pop("username", None)
                 session['username'] = newname
                 return make_response(jsonify(
-                    {
-                        'ok':'true'
-                    }
-                ))
+                    ok = 'true', message = "更新成功", greeting = str(newname)+"，歡迎登入系統"
+                ), 200)
             else: 
                 return make_response(jsonify(
-                    {
-                        'error':'true'
-                    }
-                ))
+                        error = 'true'
+                ), 400)
         else:
             return
     else: 
@@ -165,4 +164,5 @@ def loopUpMemberAPI():
 
 
 if __name__ == '__main__':
+    app.config['JSON_AS_ASCII'] = False
     app.run(port=3000, debug=True)
